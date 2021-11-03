@@ -1,0 +1,50 @@
+.content {
+	text-align: justify;
+
+}
+
+p {
+	margin-top: 10px;
+}
+
+.title {
+	margin-top: 30px;
+	font-weight: 700;
+}
+
+dt {
+	margin-top: 20px;
+	color: orange;
+	font-weight: 700;
+}
+
+.img-fabricas {
+	display: flex;
+	width: auto;
+    float:left;
+    margin-top: 100px;
+    margin-bottom: 100px;
+	margin-right:auto;
+}
+
+.img-fabricas ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-top: -25px;
+}
+
+.img-fabricas li {
+	text-align: center;
+	color: orange;
+	font-weight: 700;
+}
+
+.img-fabricas li img {
+	display: block;
+	margin-top: 100px;
+	margin-left: 100px;
+	margin-bottom: 10px;
+	max-width: auto;
+	box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.096);
+}

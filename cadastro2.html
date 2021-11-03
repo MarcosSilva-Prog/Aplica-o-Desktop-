@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/cadastro2.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+		<div class="navbar">
+			<h1 class="logo">BrasilMaujor Motores</h1>
+			<ul>
+				<li><a href="home.html">Início</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="Product.html"> Produtos</a></li>
+                <li><a href="Cadastro.html"> Contato</a></li>
+			</ul>
+		</div>
+    </body>
+<body class="pro">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <form class="check">
+            <label for="cep"></label>
+                    <input id="cep" placeholder="CEP" type="text" required/><br>
+            <label for="logradouro"></label>
+                    <input id="logradouro"  placeholder="Logradouro" type="text" required/><br>
+            <label for="numero"></label>
+                    <input id="numero" placeholder="Número" type="text" /><br>
+            <label for="complemento"></label>
+            
+                    <input id="complemento" placeholder="Complemento" type="text"/><br>
+                    <p>  </p>
+            <label for="bairro"></label>
+                    <input id="bairro" placeholder="Bairro" type="text" required/><br>
+            <label for="uf"></label>
+                    <select id="uf">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select> <br> <br> 
+
+                   <label  for="Nome Comoleto"></label>
+                    <input id="nome" placeholder="Nome Completo" type="text" required/> <br>
+                    
+                    <label for="CPF "></label>
+                    <input id="CPF" placeholder="CPF" type="text" required/><br>
+                    <label for="Email"></label>
+                    <input id="CPF" placeholder="Email" type="text" required/><br><br><br>
+                    
+
+                    <div class="center">
+                        <button id="btn" onclick="alert('Cadastro efetuado. Senha e Login eviados mo Email ') ">Cadastrar</button>
+                        
+                    </div>
+
+                    
+            </form>
+            <script type="text/javascript">
+                $("#cep").focusout(function(){
+                    //Início do Comando AJAX
+                    $.ajax({
+                        //O campo URL diz o caminho de onde virá os dados
+                        //É importante concatenar o valor digitado no CEP
+                        url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+                        //Aqui você deve preencher o tipo de dados que será lido,
+                        //no caso, estamos lendo JSON.
+                        dataType: 'json',
+                        //SUCESS é referente a função que será executada caso
+                        //ele consiga ler a fonte de dados com sucesso.
+                        //O parâmetro dentro da função se refere ao nome da variável
+                        //que você vai dar para ler esse objeto.
+                        success: function(resposta){
+                            //Agora basta definir os valores que você deseja preencher
+                            //automaticamente nos campos acima.
+                            $("#logradouro").val(resposta.logradouro);
+                            $("#complemento").val(resposta.complemento);
+                            $("#bairro").val(resposta.bairro);
+                            $("#cidade").val(resposta.localidade);
+                            $("#uf").val(resposta.uf);
+                            //Vamos incluir para que o Número seja focado automaticamente
+                            //melhorando a experiência do usuário
+                            $("#numero").focus();
+                        }
+                    });
+                });
+            </script>
+        
+
+
+
+
+	</header>
+</body>
+</html>
